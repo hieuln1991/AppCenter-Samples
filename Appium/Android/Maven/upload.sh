@@ -1,5 +1,5 @@
 # Provide AppCenter/Test upload command & path to APK.
-AppCenter_Test_Command='paste command here'
+AppCenter_Test_Command='appcenter test run appium --app "hieult7/DemoApp" --devices c51464e2 --app-path /Users/hieult/IdeaProjects/AppCenter-Samples/Appium/Android/Maven/app-release.apk --test-series "master" --locale "en_US" --build-dir target/upload'
 app_path='../swiftnotes.apk'
 
 # Run using the command "sh upload.sh"

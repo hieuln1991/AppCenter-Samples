@@ -8,7 +8,7 @@ import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -28,8 +28,8 @@ public class StartAppTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "android");
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "foo");
-        capabilities.setCapability(MobileCapabilityType.APP, "[path to local repo]/AppCenter-Test-Samples/Appium/Android/swiftnotes.apk");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_3_API_29_64");
+        capabilities.setCapability(MobileCapabilityType.APP, "/Users/hieult/IdeaProjects/AppCenter-Samples/Appium/Android/app1.apk");
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 7913);
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 
@@ -42,8 +42,9 @@ public class StartAppTest {
     @Test
     public void canStartAppInTest() throws MalformedURLException, InterruptedException {
         driver = startApp();
-
-        MobileElement elem = Util.findByByOrName(driver, By.id("com.moonpi.swiftnotes:id/newNote"), "+");
+        String pageSource = driver.getPageSource();
+        //System.out.print(pageSource);
+        MobileElement elem = Util.findByByOrName(driver, By.id("com.example.demoapp1:id/button_first"), "NEXT");
         elem.click();
         Thread.sleep(5000);
 
